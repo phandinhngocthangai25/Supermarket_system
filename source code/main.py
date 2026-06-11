@@ -5,9 +5,17 @@ from models.Customer import Customer
 from models.Product import Product
 from models.Invoice import Invoice
 from models.InvoiceDetail import InvoiceDetail
+from services.Authentication import Authentication
 
 db = Database()
 
-a = (1, 1, "thang123", "nhân viên", "123123")
-u1 = User.from_tuple(a)
-print(u1.role)
+username1 = "thangpdn"
+password1 = "thangdz"
+
+username2 = "tungns"
+password2 = "tungvdz"
+
+au = Authentication()
+au.login(username2, password2)
+au.change_password(password2, "thangveryhandsome")
+

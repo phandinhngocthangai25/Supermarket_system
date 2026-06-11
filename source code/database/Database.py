@@ -2,7 +2,7 @@ import pyodbc
 
 class Database:
 
-    def __init__(self, conn_str="Driver={ODBC Driver 17 for SQL Server};Server=.;Database=CYBER_GAME_SYSTEM;Trusted_Connection=yes;"):
+    def __init__(self, conn_str="Driver={ODBC Driver 17 for SQL Server};Server=.;Database=SUPERMARKET_SYSTEM;Trusted_Connection=yes;"):
         self.__conn_str = conn_str
 
     def get_connection(self):   
@@ -33,7 +33,7 @@ class Database:
         finally:
             conn.close()
     
-    def fecth_one(self, query, params=()):
+    def fetch_one(self, query, params=()):
         conn = self.get_connection()
         cursor = conn.cursor()
         try:
