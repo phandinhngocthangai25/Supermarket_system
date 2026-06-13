@@ -1,10 +1,10 @@
 class Person:
 
     def __init__(self, fullName="", phone="", email="", address=""):
-        self.__fullName = fullName
-        self.__phone = phone
-        self.__email = email
-        self.__address = address
+        self.fullName = fullName
+        self.phone = phone
+        self.email = email
+        self.address = address
 
     @property
     def fullName(self):

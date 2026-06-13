@@ -4,15 +4,15 @@ class Invoice:
     def __init__(self, invoiceID=None, customerID=None, 
                  employeeID=None, totalAmount=0, discount=0,
                  finalAmount=0, paymentMethod="", date=None, note=""):
-        self.__invoiceID = invoiceID
-        self.__customerID = customerID
-        self.__employeeID = employeeID
-        self.__totalAmount = totalAmount
-        self.__discount = discount
-        self.__finalAmount = finalAmount
-        self.__paymentMethod = paymentMethod
-        self.__date = date if date else datetime.datetime.now()
-        self.__note = note
+        self.invoiceID = invoiceID
+        self.customerID = customerID
+        self.employeeID = employeeID
+        self.totalAmount = totalAmount
+        self.discount = discount
+        self.finalAmount = finalAmount
+        self.paymentMethod = paymentMethod
+        self.date = date if date else datetime.datetime.now()
+        self.note = note
 
     @property
     def invoiceID(self):

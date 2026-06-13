@@ -1,11 +1,11 @@
 class User:
 
-    def __init__(self, userID=None, employeeID=None, userName="", password="", role="", createdAt=""):
-        self.__userID = userID
-        self.__employeeID = employeeID
-        self.__userName = userName
-        self.__password = password
-        self.__role = role
+    def __init__(self, userID=None, employeeID=None, userName="", password="", role=""):
+        self.userID = userID
+        self.employeeID = employeeID
+        self.userName = userName
+        self.password = password
+        self.role = role
     
     @property
     def userID(self):

@@ -3,8 +3,8 @@ class Customer(Person):
 
     def __init__(self, customerID=None, fullName="", phone="", email="", address="", loyaltyPoints=0, createdAt=""):
         super().__init__(fullName, phone, email, address)
-        self.__customerID = customerID
-        self.__loyaltyPoints = loyaltyPoints
+        self.customerID = customerID
+        self.loyaltyPoints = loyaltyPoints
 
     @property
     def customerID(self):

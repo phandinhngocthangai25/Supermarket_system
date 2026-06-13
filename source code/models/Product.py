@@ -1,13 +1,13 @@
 class Product:
 
     def __init__(self, productID=None, name="", costPrice=None, sellingPrice=None, quantity=None, unit="", expiryDate=""):
-        self.__productID = productID
-        self.__name = name
-        self.__costPrice = costPrice
-        self.__sellingPrice = sellingPrice
-        self.__quantity = quantity
-        self.__unit = unit
-        self.__expiryDate = expiryDate
+        self.productID = productID
+        self.name = name
+        self.costPrice = costPrice
+        self.sellingPrice = sellingPrice
+        self.quantity = quantity
+        self.unit = unit
+        self.expiryDate = expiryDate
 
     @property
     def productID(self):

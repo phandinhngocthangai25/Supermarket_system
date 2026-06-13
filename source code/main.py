@@ -6,6 +6,7 @@ from models.Product import Product
 from models.Invoice import Invoice
 from models.InvoiceDetail import InvoiceDetail
 from services.Authentication import Authentication
+import datetime
 
 db = Database()
 
@@ -16,6 +17,8 @@ username2 = "tungns"
 password2 = "tungvdz"
 
 au = Authentication()
-au.login(username2, password2)
-au.change_password(password2, "thangveryhandsome")
+au.login(username1, password1)
+print(au.userCurrent.role)
+
+print(datetime.datetime.now())
 

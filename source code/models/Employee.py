@@ -3,8 +3,8 @@ class Employee(Person):
 
     def __init__(self, employeeID=None, fullName="", phone="", email="", address="", salary=None):
         super().__init__(fullName, phone, email, address)
-        self.__employeeID = employeeID
-        self.__salary = salary
+        self.employeeID = employeeID
+        self.salary = salary
 
     @property
     def employeeID(self):
