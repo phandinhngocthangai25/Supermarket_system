@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>winUser</class>
+ <widget class="QMainWindow" name="winUser">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>870</width>
+    <height>603</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">/* ---- TOÀN BỘ CỬA SỔ ---- */
+QMainWindow {
+    background-color: #121212; /* Nền tối tổng thể */
+}
+
+/* ---- THANH SIDEBAR BÊN TRÁI ---- */
+QFrame#frameSidebar {
+    background-color: #1e1e1e; /* Màu nền Sidebar sáng hơn nền chính một chút */
+    border-right: 1px solid #2d2d2d; /* Đường chia cắt dọc mờ */
+}
+
+/* ---- CÁC NÚT BẤM TRÊN SIDEBAR ---- */
+QFrame#frameSidebar QPushButton {
+    background-color: transparent; /* Xóa nền xám thô của nút mặc định */
+    color: #b3b3b3; /* Màu chữ xám nhẹ */
+    border: none; /* Xóa viền nút */
+    border-radius: 6px; /* Bo góc nhẹ cho nút */
+    text-align: left; /* Căn chữ sang bên trái */
+    padding-left: 15px; /* Đẩy chữ cách mép trái ra một chút */
+    height: 42px; /* Cố định chiều cao các nút cho đều nhau */
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* Hiệu ứng khi rê chuột vào các nút menu */
+QFrame#frameSidebar QPushButton:hover {
+    background-color: #2a2a2a; /* Nền sáng lên */
+    color: #ffffff; /* Chữ chuyển sang màu trắng */
+}
+
+/* Hiệu ứng riêng dành cho nút Đăng Xuất nằm dưới cùng */
+QFrame#frameSidebar QPushButton#btnDangXuat {
+    color: #ff5555; /* Chữ màu đỏ để cảnh báo */
+}
+QFrame#frameSidebar QPushButton#btnDangXuat:hover {
+    background-color: #3a1a1a; /* Nền đỏ tối khi hover */
+    color: #ff6e6e;
+}
+
+/* ---- VÙNG NỘI DUNG BÊN PHẢI ---- */
+QStackedWidget#stackedContent {
+    background-color: #181818; /* Nền của vùng hiển thị nội dung */
+    border-radius: 8px;
+}</string>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QFrame" name="frameSidebar">
+      <property name="maximumSize">
+       <size>
+        <width>200</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Shape::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Shadow::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QPushButton" name="btnPayment">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Thanh toán</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnHistory">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Lịch sử hóa đơn</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnProduct">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Hàng hóa</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnCustomer">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Quản lý khách hàng</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnEmployee">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Quản lý nhân viên</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>170</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnLogout">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Đăng xuất</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="frameContent">
+      <property name="frameShape">
+       <enum>QFrame::Shape::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Shadow::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QStackedWidget" name="stackedContent">
+         <property name="currentIndex">
+          <number>4</number>
+         </property>
+         <widget class="QWidget" name="pagePayment">
+          <widget class="QPushButton" name="pushButton_3">
+           <property name="geometry">
+            <rect>
+             <x>570</x>
+             <y>460</y>
+             <width>81</width>
+             <height>26</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>3</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label">
+           <property name="geometry">
+            <rect>
+             <x>260</x>
+             <y>150</y>
+             <width>91</width>
+             <height>61</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>thanh toán</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="pageHistory">
+          <widget class="QPushButton" name="pushButton_2">
+           <property name="geometry">
+            <rect>
+             <x>560</x>
+             <y>450</y>
+             <width>81</width>
+             <height>26</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>2</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_4">
+           <property name="geometry">
+            <rect>
+             <x>230</x>
+             <y>130</y>
+             <width>49</width>
+             <height>16</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>lịch sử</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="pageProduct">
+          <widget class="QPushButton" name="pushButton">
+           <property name="geometry">
+            <rect>
+             <x>540</x>
+             <y>440</y>
+             <width>81</width>
+             <height>26</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>1</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_5">
+           <property name="geometry">
+            <rect>
+             <x>180</x>
+             <y>140</y>
+             <width>91</width>
+             <height>51</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>sản phẩm</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="pageCustomer">
+          <widget class="QPushButton" name="pushButton_4">
+           <property name="geometry">
+            <rect>
+             <x>580</x>
+             <y>470</y>
+             <width>81</width>
+             <height>26</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>4</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_2">
+           <property name="geometry">
+            <rect>
+             <x>300</x>
+             <y>110</y>
+             <width>91</width>
+             <height>61</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>khách hàng</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="pageEmployee">
+          <widget class="QPushButton" name="pushButton_5">
+           <property name="geometry">
+            <rect>
+             <x>600</x>
+             <y>480</y>
+             <width>81</width>
+             <height>26</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>5</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_3">
+           <property name="geometry">
+            <rect>
+             <x>240</x>
+             <y>170</y>
+             <width>111</width>
+             <height>61</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>nhân viên</string>
+           </property>
+          </widget>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>870</width>
+     <height>33</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

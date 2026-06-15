@@ -21,6 +21,7 @@ class Authentication:
             return False
         
         self.userCurrent = User.from_tuple(user_data)
+        print("ok")
         return True
     
     def change_password(self, oldPassword, newPassword):

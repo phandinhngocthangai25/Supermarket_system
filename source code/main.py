@@ -1,24 +1,13 @@
-from database.Database import Database 
-from models.User import User
-from models.Employee import Employee
-from models.Customer import Customer
-from models.Product import Product
-from models.Invoice import Invoice
-from models.InvoiceDetail import InvoiceDetail
+import sys
+from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox
+
+# Import tầng Service và giao diện của bạn
 from services.Authentication import Authentication
-import datetime
+from ui.login import Ui_winLogin
+from controllers.LoginController import LoginController
 
-db = Database()
-
-username1 = "thangpdn"
-password1 = "thangdz"
-
-username2 = "tungns"
-password2 = "tungvdz"
-
-au = Authentication()
-au.login(username1, password1)
-print(au.userCurrent.role)
-
-print(datetime.datetime.now())
-
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = LoginController()
+    window.show()
+    sys.exit(app.exec())
