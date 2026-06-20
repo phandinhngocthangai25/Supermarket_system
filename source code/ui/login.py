@@ -24,12 +24,12 @@ class Ui_winLogin(object):
     def setupUi(self, winLogin):
         if not winLogin.objectName():
             winLogin.setObjectName(u"winLogin")
-        winLogin.resize(960, 600)
+        winLogin.resize(536, 354)
         self.centralwidget = QWidget(winLogin)
         self.centralwidget.setObjectName(u"centralwidget")
         self.frameLogin = QFrame(self.centralwidget)
         self.frameLogin.setObjectName(u"frameLogin")
-        self.frameLogin.setGeometry(QRect(230, 130, 431, 271))
+        self.frameLogin.setGeometry(QRect(50, 10, 431, 271))
         self.frameLogin.setStyleSheet(u"/* \u00c1p d\u1ee5ng cho c\u00e1c \u00f4 nh\u1eadp li\u1ec7u */\n"
 "QLineEdit {\n"
 "    background-color: #2b2b2b;\n"
@@ -127,7 +127,7 @@ class Ui_winLogin(object):
         winLogin.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(winLogin)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 960, 33))
+        self.menubar.setGeometry(QRect(0, 0, 536, 33))
         winLogin.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(winLogin)
         self.statusbar.setObjectName(u"statusbar")

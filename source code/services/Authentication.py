@@ -1,51 +1,50 @@
 from database.Database import Database
 from models.User import User
-class Authentication:
 
+class Authentication:
     def __init__(self, userCurrent=None):
         self.userCurrent = userCurrent
         self.db = Database()
-    
-    def logout(self):
-        self.userCurrent = None
 
     def login(self, userName, password):
         if not userName.strip() or not password:
-            print("The username and password must not be left blank")
+            print("Username and password cannot be empty")
             return False
-        
-        query = "select * from [User] where userName = ? and password = ?"
-        user_data = self.db.fetch_one(query, (userName, password))
-        if not user_data:
+
+        # Truy vấn trên bảng Employee
+        query = "SELECT * FROM Employee WHERE username = ? AND password = ?"
+        row = self.db.fetch_one(query, (userName, password))
+        if not row:
             print("Incorrect username or password")
             return False
-        
-        self.userCurrent = User.from_tuple(user_data)
-        print("ok")
+
+        self.userCurrent = User(
+            userID=row[0],
+            employeeID=row[0],
+            userName=row[6],
+            password=row[7],
+            role=row[8]
+        )
+        print("Login successful")
         return True
-    
+
+    def logout(self):
+        self.userCurrent = None
+
     def change_password(self, oldPassword, newPassword):
-            
         if not self.userCurrent:
-            print("The current user is empty")
+            print("No user logged in")
             return False
-        
-        username = self.userCurrent.userName
-        password = self.userCurrent.password
-        if password != oldPassword:
-            print("Incorret old password")
+        # Kiểm tra mật khẩu cũ
+        if self.userCurrent.password != oldPassword:
+            print("Old password incorrect")
             return False
-        
-        query = "update [User] set password = ? where username = ?"
-        self.db.execute_query(query, (newPassword, username))
+        # Cập nhật trên bảng Employee
+        query = "UPDATE Employee SET password = ? WHERE employeeID = ?"
+        self.db.execute_query(query, (newPassword, self.userCurrent.employeeID))
         self.userCurrent.password = newPassword
-        print("The password has been successfully changed")
+        print("Password changed successfully")
         return True
-    
+
     def is_admin(self):
-        if not self.userCurrent:
-            print("The current user is empty")
-            return False
-        return self.userCurrent.role == "Admin" 
-        
-        
+        return self.userCurrent and self.userCurrent.role == "Admin"

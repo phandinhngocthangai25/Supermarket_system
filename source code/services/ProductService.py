@@ -1,6 +1,6 @@
 from database.Database import Database
 from models.Product import Product
-class Productservice:
+class ProductService:
 
     def __init__(self):
         self.db = Database()
@@ -13,7 +13,16 @@ class Productservice:
         for product in products_data:
             arr_products.append(Product.from_tuple(product))
         return arr_products
-    
+
+    def get_product_by_id(self, product_id):
+        if not product_id:
+            return None
+        query = "SELECT * FROM Product WHERE productID = ?"
+        row = self.db.fetch_one(query, (product_id,))
+        if row:
+            return Product.from_tuple(row)
+        return None
+
     def search_products(self, name):
 
         if not name or not name.strip():

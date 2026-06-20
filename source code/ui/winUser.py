@@ -15,17 +15,15 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QHeaderView,
-    QLabel, QLineEdit, QMainWindow, QMenuBar,
-    QPushButton, QScrollArea, QSizePolicy, QSpacerItem,
-    QStackedWidget, QStatusBar, QTableWidget, QTableWidgetItem,
-    QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QMainWindow,
+    QMenuBar, QPushButton, QSizePolicy, QSpacerItem,
+    QStackedWidget, QStatusBar, QVBoxLayout, QWidget)
 
 class Ui_winUser(object):
     def setupUi(self, winUser):
         if not winUser.objectName():
             winUser.setObjectName(u"winUser")
-        winUser.resize(1168, 688)
+        winUser.resize(1112, 688)
         self.centralwidget = QWidget(winUser)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"/* ---- TO\u00c0N B\u1ed8 C\u1eecA S\u1ed4 ---- */\n"
@@ -126,178 +124,15 @@ class Ui_winUser(object):
 
         self.horizontalLayout.addWidget(self.frameSidebar)
 
-        self.frameContent = QFrame(self.centralwidget)
-        self.frameContent.setObjectName(u"frameContent")
-        self.frameContent.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frameContent.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_2 = QVBoxLayout(self.frameContent)
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.stackedContent = QStackedWidget(self.frameContent)
+        self.stackedContent = QStackedWidget(self.centralwidget)
         self.stackedContent.setObjectName(u"stackedContent")
-        self.pagePayment = QWidget()
-        self.pagePayment.setObjectName(u"pagePayment")
-        self.horizontalLayout_2 = QHBoxLayout(self.pagePayment)
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.frameCart = QFrame(self.pagePayment)
-        self.frameCart.setObjectName(u"frameCart")
-        self.frameCart.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frameCart.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_4 = QVBoxLayout(self.frameCart)
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.frame = QFrame(self.frameCart)
-        self.frame.setObjectName(u"frame")
-        self.frame.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame.setFrameShadow(QFrame.Shadow.Raised)
-        self.horizontalLayout_4 = QHBoxLayout(self.frame)
-        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.txtSearchProduct = QLineEdit(self.frame)
-        self.txtSearchProduct.setObjectName(u"txtSearchProduct")
 
-        self.horizontalLayout_4.addWidget(self.txtSearchProduct)
-
-        self.btnAddProduct = QPushButton(self.frame)
-        self.btnAddProduct.setObjectName(u"btnAddProduct")
-
-        self.horizontalLayout_4.addWidget(self.btnAddProduct)
-
-
-        self.verticalLayout_4.addWidget(self.frame)
-
-        self.scrollCartContainer = QScrollArea(self.frameCart)
-        self.scrollCartContainer.setObjectName(u"scrollCartContainer")
-        self.scrollCartContainer.setWidgetResizable(True)
-        self.scrollAreaWidgetContents = QWidget()
-        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 664, 496))
-        self.verticalLayout_5 = QVBoxLayout(self.scrollAreaWidgetContents)
-        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.tableCartItems = QTableWidget(self.scrollAreaWidgetContents)
-        if (self.tableCartItems.columnCount() < 6):
-            self.tableCartItems.setColumnCount(6)
-        __qtablewidgetitem = QTableWidgetItem()
-        self.tableCartItems.setHorizontalHeaderItem(0, __qtablewidgetitem)
-        __qtablewidgetitem1 = QTableWidgetItem()
-        self.tableCartItems.setHorizontalHeaderItem(1, __qtablewidgetitem1)
-        __qtablewidgetitem2 = QTableWidgetItem()
-        self.tableCartItems.setHorizontalHeaderItem(2, __qtablewidgetitem2)
-        __qtablewidgetitem3 = QTableWidgetItem()
-        self.tableCartItems.setHorizontalHeaderItem(3, __qtablewidgetitem3)
-        __qtablewidgetitem4 = QTableWidgetItem()
-        self.tableCartItems.setHorizontalHeaderItem(4, __qtablewidgetitem4)
-        __qtablewidgetitem5 = QTableWidgetItem()
-        self.tableCartItems.setHorizontalHeaderItem(5, __qtablewidgetitem5)
-        self.tableCartItems.setObjectName(u"tableCartItems")
-        self.tableCartItems.horizontalHeader().setStretchLastSection(True)
-
-        self.verticalLayout_5.addWidget(self.tableCartItems)
-
-        self.scrollCartContainer.setWidget(self.scrollAreaWidgetContents)
-
-        self.verticalLayout_4.addWidget(self.scrollCartContainer)
-
-
-        self.horizontalLayout_2.addWidget(self.frameCart)
-
-        self.frameCheckout = QFrame(self.pagePayment)
-        self.frameCheckout.setObjectName(u"frameCheckout")
-        self.frameCheckout.setMaximumSize(QSize(250, 16777215))
-        self.frameCheckout.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frameCheckout.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_3 = QVBoxLayout(self.frameCheckout)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.txtSearchCustomer = QLineEdit(self.frameCheckout)
-        self.txtSearchCustomer.setObjectName(u"txtSearchCustomer")
-        self.txtSearchCustomer.setMinimumSize(QSize(0, 30))
-
-        self.verticalLayout_3.addWidget(self.txtSearchCustomer)
-
-        self.txtDiscount = QLineEdit(self.frameCheckout)
-        self.txtDiscount.setObjectName(u"txtDiscount")
-        self.txtDiscount.setMinimumSize(QSize(0, 30))
-
-        self.verticalLayout_3.addWidget(self.txtDiscount)
-
-        self.frame_3 = QFrame(self.frameCheckout)
-        self.frame_3.setObjectName(u"frame_3")
-        self.frame_3.setMinimumSize(QSize(0, 30))
-        self.frame_3.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_3.setFrameShadow(QFrame.Shadow.Raised)
-        self.horizontalLayout_3 = QHBoxLayout(self.frame_3)
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.label = QLabel(self.frame_3)
-        self.label.setObjectName(u"label")
-
-        self.horizontalLayout_3.addWidget(self.label)
-
-        self.txtFinalAmount = QLabel(self.frame_3)
-        self.txtFinalAmount.setObjectName(u"txtFinalAmount")
-        self.txtFinalAmount.setAlignment(Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing|Qt.AlignmentFlag.AlignVCenter)
-
-        self.horizontalLayout_3.addWidget(self.txtFinalAmount)
-
-
-        self.verticalLayout_3.addWidget(self.frame_3)
-
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.verticalLayout_3.addItem(self.verticalSpacer_2)
-
-        self.pushButton_3 = QPushButton(self.frameCheckout)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.setMinimumSize(QSize(0, 30))
-
-        self.verticalLayout_3.addWidget(self.pushButton_3)
-
-
-        self.horizontalLayout_2.addWidget(self.frameCheckout)
-
-        self.stackedContent.addWidget(self.pagePayment)
-        self.pageHistory = QWidget()
-        self.pageHistory.setObjectName(u"pageHistory")
-        self.pushButton_2 = QPushButton(self.pageHistory)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setGeometry(QRect(560, 450, 81, 26))
-        self.label_4 = QLabel(self.pageHistory)
-        self.label_4.setObjectName(u"label_4")
-        self.label_4.setGeometry(QRect(230, 130, 49, 16))
-        self.stackedContent.addWidget(self.pageHistory)
-        self.pageProduct = QWidget()
-        self.pageProduct.setObjectName(u"pageProduct")
-        self.pushButton = QPushButton(self.pageProduct)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(540, 440, 81, 26))
-        self.label_5 = QLabel(self.pageProduct)
-        self.label_5.setObjectName(u"label_5")
-        self.label_5.setGeometry(QRect(180, 140, 91, 51))
-        self.stackedContent.addWidget(self.pageProduct)
-        self.pageCustomer = QWidget()
-        self.pageCustomer.setObjectName(u"pageCustomer")
-        self.pushButton_4 = QPushButton(self.pageCustomer)
-        self.pushButton_4.setObjectName(u"pushButton_4")
-        self.pushButton_4.setGeometry(QRect(580, 470, 81, 26))
-        self.label_2 = QLabel(self.pageCustomer)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(300, 110, 91, 61))
-        self.stackedContent.addWidget(self.pageCustomer)
-        self.pageEmployee = QWidget()
-        self.pageEmployee.setObjectName(u"pageEmployee")
-        self.pushButton_5 = QPushButton(self.pageEmployee)
-        self.pushButton_5.setObjectName(u"pushButton_5")
-        self.pushButton_5.setGeometry(QRect(600, 480, 81, 26))
-        self.label_3 = QLabel(self.pageEmployee)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setGeometry(QRect(240, 170, 111, 61))
-        self.stackedContent.addWidget(self.pageEmployee)
-
-        self.verticalLayout_2.addWidget(self.stackedContent)
-
-
-        self.horizontalLayout.addWidget(self.frameContent)
+        self.horizontalLayout.addWidget(self.stackedContent)
 
         winUser.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(winUser)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1168, 33))
+        self.menubar.setGeometry(QRect(0, 0, 1112, 33))
         winUser.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(winUser)
         self.statusbar.setObjectName(u"statusbar")
@@ -319,29 +154,5 @@ class Ui_winUser(object):
         self.btnCustomer.setText(QCoreApplication.translate("winUser", u"Qu\u1ea3n l\u00fd kh\u00e1ch h\u00e0ng", None))
         self.btnEmployee.setText(QCoreApplication.translate("winUser", u"Qu\u1ea3n l\u00fd nh\u00e2n vi\u00ean", None))
         self.btnLogout.setText(QCoreApplication.translate("winUser", u"\u0110\u0103ng xu\u1ea5t", None))
-        self.btnAddProduct.setText(QCoreApplication.translate("winUser", u"+", None))
-        ___qtablewidgetitem = self.tableCartItems.horizontalHeaderItem(0)
-        ___qtablewidgetitem.setText(QCoreApplication.translate("winUser", u"STT", None))
-        ___qtablewidgetitem1 = self.tableCartItems.horizontalHeaderItem(1)
-        ___qtablewidgetitem1.setText(QCoreApplication.translate("winUser", u"T\u00ean s\u1ea3n ph\u1ea9m", None))
-        ___qtablewidgetitem2 = self.tableCartItems.horizontalHeaderItem(2)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("winUser", u"S\u1ed1 l\u01b0\u1ee3ng", None))
-        ___qtablewidgetitem3 = self.tableCartItems.horizontalHeaderItem(3)
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("winUser", u"\u0110\u01a1n gi\u00e1", None))
-        ___qtablewidgetitem4 = self.tableCartItems.horizontalHeaderItem(4)
-        ___qtablewidgetitem4.setText(QCoreApplication.translate("winUser", u"Th\u00e0nh ti\u1ec1n", None))
-        self.txtSearchCustomer.setPlaceholderText(QCoreApplication.translate("winUser", u"T\u00ecm kh\u00e1ch h\u00e0ng", None))
-        self.txtDiscount.setPlaceholderText(QCoreApplication.translate("winUser", u"S\u1ed1 ti\u1ec1n gi\u1ea3m gi\u00e1", None))
-        self.label.setText(QCoreApplication.translate("winUser", u"S\u1ed1 ti\u1ec1n thanh to\u00e1n", None))
-        self.txtFinalAmount.setText(QCoreApplication.translate("winUser", u"10000000", None))
-        self.pushButton_3.setText(QCoreApplication.translate("winUser", u"Thanh to\u00e1n", None))
-        self.pushButton_2.setText(QCoreApplication.translate("winUser", u"2", None))
-        self.label_4.setText(QCoreApplication.translate("winUser", u"l\u1ecbch s\u1eed", None))
-        self.pushButton.setText(QCoreApplication.translate("winUser", u"1", None))
-        self.label_5.setText(QCoreApplication.translate("winUser", u"s\u1ea3n ph\u1ea9m", None))
-        self.pushButton_4.setText(QCoreApplication.translate("winUser", u"4", None))
-        self.label_2.setText(QCoreApplication.translate("winUser", u"kh\u00e1ch h\u00e0ng", None))
-        self.pushButton_5.setText(QCoreApplication.translate("winUser", u"5", None))
-        self.label_3.setText(QCoreApplication.translate("winUser", u"nh\u00e2n vi\u00ean", None))
     # retranslateUi
 

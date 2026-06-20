@@ -40,6 +40,7 @@ class InvoiceDetail:
     def sellingPrice(self, sellingPrice):
         if sellingPrice is not None and sellingPrice < 0:
             raise ValueError("giá bán sản phẩm trong hóa đơn không thể nhỏ hơn 0!")
+        self.__sellingPrice = sellingPrice
 
     @classmethod
     def from_tuple(cls, row):

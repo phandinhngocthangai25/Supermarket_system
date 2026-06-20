@@ -1,5 +1,5 @@
 from database.Database import Database
-from models.Customer import Customer  # Đảm bảo bạn đã tạo file model này
+from models.Customer import Customer
 
 class CustomerService:
 
@@ -15,14 +15,24 @@ class CustomerService:
         for row in customers_data:
             arr_customers.append(Customer.from_tuple(row))
         return arr_customers
-    
+
+    def get_customer_by_id(self, customer_id):
+        """Lấy thông tin khách hàng theo ID, trả về đối tượng Customer hoặc None"""
+        if not customer_id:
+            return None
+        query = "SELECT * FROM Customer WHERE customerID = ?"
+        row = self.db.fetch_one(query, (customer_id,))
+        if row:
+            return Customer.from_tuple(row)
+        return None
+
     def search_customers(self, keyword):
 
         if not keyword or not keyword.strip():
             return self.get_all_customers()
         
         keyword = keyword.strip()
-        query = "SELECT * FROM Customer WHERE name LIKE ? OR phone LIKE ?"
+        query = "SELECT * FROM Customer WHERE fullName LIKE ? OR phone LIKE ?"
         search_param = f"%{keyword}%"
         customers_data = self.db.fetch_all(query, (search_param, search_param))
         
@@ -36,9 +46,9 @@ class CustomerService:
             print("Customer object is none")
             return False
             
-        query = "INSERT INTO Customer (name, phone, email, address, loyaltyPoints) VALUES (?, ?, ?, ?, ?)"
+        query = "INSERT INTO Customer (fullName, phone, email, address, loyaltyPoints) VALUES (?, ?, ?, ?, ?)"
         params = (
-            customer.name, 
+            customer.fullName, 
             customer.phone, 
             customer.email,
             customer.address,
@@ -54,10 +64,10 @@ class CustomerService:
             print("Customer object is none")
             return False
 
-        query = """UPDATE Customer SET name = ?, phone = ?, email = ?, address = ?, loyaltyPoints = ? WHERE customerID = ?"""
+        query = """UPDATE Customer SET fullName = ?, phone = ?, email = ?, address = ?, loyaltyPoints = ? WHERE customerID = ?"""
         params = (
-            customer.name, 
-            customer.phoneNumber, 
+            customer.fullName, 
+            customer.phone, 
             customer.email,
             customer.address,  
             customer.loyaltyPoints, 

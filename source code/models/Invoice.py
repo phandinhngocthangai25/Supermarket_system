@@ -97,7 +97,7 @@ class Invoice:
         if not row:
             return None
         return cls(
-            invoideID=row[0],
+            invoiceID=row[0],
             customerID=row[1],
             employeeID=row[2],
             totalAmount=row[3],
